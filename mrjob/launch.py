@@ -542,6 +542,7 @@ class MRJobLauncher(object):
             'strict_protocols': self.options.strict_protocols,
             'upload_archives': self.options.upload_archives,
             'upload_files': self.options.upload_files,
+            'runner': self.options.runner,
         }
 
     def inline_job_runner_kwargs(self):
