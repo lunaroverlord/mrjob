@@ -113,6 +113,7 @@ class RunnerOptionStore(OptionStore):
         'strict_protocols',
         'upload_archives',
         'upload_files',
+        'runner',
     ]))
 
     COMBINERS = combine_dicts(OptionStore.COMBINERS, {
@@ -765,6 +766,7 @@ class MRJobRunner(object):
         assert self._script_path
 
         args = self._executable() + [
+            '--runner=%s' % self._opts['runner'],
             '--step-num=%d' % step_num,
             '--%s' % mrc,
         ] + self._mr_job_extra_args()
